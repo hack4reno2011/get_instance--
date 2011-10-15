@@ -1,0 +1,11 @@
+[15-Oct-2011 16:07:57] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_OLD_FUNCTION or T_FUNCTION or T_VAR or '}' in /home/jmatrixc/public_html/hack4reno/system/core/Config.php on line 294
+[15-Oct-2011 16:08:02] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_OLD_FUNCTION or T_FUNCTION or T_VAR or '}' in /home/jmatrixc/public_html/hack4reno/system/core/Config.php on line 294
+[15-Oct-2011 16:08:05] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_OLD_FUNCTION or T_FUNCTION or T_VAR or '}' in /home/jmatrixc/public_html/hack4reno/system/core/Config.php on line 294
+[15-Oct-2011 16:08:09] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_OLD_FUNCTION or T_FUNCTION or T_VAR or '}' in /home/jmatrixc/public_html/hack4reno/system/core/Config.php on line 294
+[15-Oct-2011 16:08:12] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_OLD_FUNCTION or T_FUNCTION or T_VAR or '}' in /home/jmatrixc/public_html/hack4reno/system/core/Config.php on line 294
+[15-Oct-2011 16:08:57] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_OLD_FUNCTION or T_FUNCTION or T_VAR or '}' in /home/jmatrixc/public_html/hack4reno/system/core/Config.php on line 294
+[15-Oct-2011 16:08:57] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_OLD_FUNCTION or T_FUNCTION or T_VAR or '}' in /home/jmatrixc/public_html/hack4reno/system/core/Config.php on line 294
+[15-Oct-2011 16:08:58] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_OLD_FUNCTION or T_FUNCTION or T_VAR or '}' in /home/jmatrixc/public_html/hack4reno/system/core/Config.php on line 294
+[15-Oct-2011 17:39:52] PHP Fatal error:  Call to a member function select() on a non-object in /home/jmatrixc/public_html/hack4reno/application/views/home.php on line 33
+[15-Oct-2011 17:40:27] PHP Fatal error:  Call to a member function select() on a non-object in /home/jmatrixc/public_html/hack4reno/application/views/home.php on line 34
+[15-Oct-2011 17:45:22] PHP Parse error:  syntax error, unexpected T_OBJECT_OPERATOR, expecting T_STRING or T_VARIABLE or '{' or '$' in /home/jmatrixc/public_html/hack4reno/application/views/home.php on line 34
