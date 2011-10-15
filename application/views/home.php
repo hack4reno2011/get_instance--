@@ -60,7 +60,7 @@
 			</p>
 
 			<p>
-				<button class="button">Let's See It!</button>
+				<button class="button"><strong>Let's See It!</strong></button>
 			</p>
 		</form>
 	</div>

@@ -1,10 +1,3 @@
-/* Author:
-
-*/
-
-
-
-
-
-
-
+$(function(){
+	$("input, textarea, select, button").uniform();
+});

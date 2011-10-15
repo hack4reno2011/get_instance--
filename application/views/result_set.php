@@ -24,8 +24,14 @@
 		<h1>[To Be Named]</h1>
 	</header>
 	<div id="main" role="main" class="grid_12">
-		<p>Results here...</p>
-		</form>
+		# calls over last 30 days
+		max/min/avg response times last 30 days
+		call breakdown last 30 days
+		
+
+		<p>Zip Code =
+
+		<p>Station =
 	</div>
 	<footer>
 
