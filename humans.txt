@@ -1,0 +1,22 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  David Mosher
+  Site: http://www.dmwc.biz
+  Twitter: @underparnv
+  Location: Reno, Nevada
+
+  Robert Markin
+  Site: http://tiger-hosting.com
+  Twitter: @rmarkin
+  Location: Reno, Nevada
+
+/* THANKS */
+  Names (& URL): Hack4Reno, jQuery, HTML5BoilerPlate
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery
+  Software:
