@@ -13,8 +13,10 @@ class Home extends CI_Controller {
 		@$station = $this->input->post("station_number");
 		if ($zip) {
 			$q = $this->db->from("stations")->where("station_zip", $zip)->get();
+			$for = "Zip Code " . $zip;
 		} elseif ($station) {
 			$q = $this->db->from("stations")->where("station_num", $station)->get();
+			$for = "Station #" . $station;
 		} else {
 			$this->session->set_flashdata("error", "I am not able to search without search criteria");
 			redirect("");
@@ -23,7 +25,7 @@ class Home extends CI_Controller {
 		if ($q->num_rows() > 0) {
 			$data = array();
 			$data["set"] = array();
-			$data["debug"] = $this->db->last_query();
+			$data["for"] = $for;
 			foreach($q->result() AS $r) {
 				$data["set"][] = $r;
 			}
