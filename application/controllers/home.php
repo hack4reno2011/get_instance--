@@ -96,10 +96,10 @@ class Home extends CI_Controller {
 	public function save_feedback()
 	{
 		if ($this->input->is_ajax_request()) {
-			if ($this->session->userdata("flood_control") > 2) {
-				echo "Could not save feedback.";
-				exit();
-			} else {
+			//if ($this->session->userdata("flood_control") > 10) {
+			//	echo "Could not save feedback.";
+			//	exit();
+			//} else {
 				@$flood = $this->session->userdata("flood_control");
 				if (!$flood) {
 					$flood = 0;
@@ -108,6 +108,9 @@ class Home extends CI_Controller {
 				$this->session->set_userdata(array("flood_control" => $flood));
 				@$name = $this->input->post("name");
 				@$rating = $this->input->post("rating");
+				if ($rating < 1 || $rating > 5) {
+					$rating = 3;
+				}
 				@$comments = $this->input->post("comments");
 				@$station_id = $this->input->post("station_id");
 				$insert = array("feedback_id" => NULL,
@@ -117,8 +120,17 @@ class Home extends CI_Controller {
 				"rated_dtm" => date("Y-m-d g:i:s"),
 				"user_comments" => $comments);
 				$this->db->insert("user_feedback", $insert);
-				echo "success(" . $this->session->userdata("flood_control");
-			}
+				$q = $this->db->from("user_feedback")->where("station_id", $station_id)->get();
+				$totals = array();
+				$comments = "";
+				foreach($q->result() AS $r) {
+					$totals[] = $r->rating;
+					$comments .= "<hr />" . $r->user_comments;
+				}
+				echo "<p>" . count($totals) . " user(s) rate this station an average of " . number_format(array_sum($totals) / count($totals), 2) . "</p><h2>User Comments</h2>";
+				echo $comments;
+				echo "<hr />";
+			//}
 		}
 	}
 }

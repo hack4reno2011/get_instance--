@@ -135,12 +135,11 @@
 			<p>
 				<input type="hidden" name="station_id" id="station_id" value="<?php echo $s->station_num; ?>" />
 				<label for="name">Your Name:</label>
-				<input type="text" name="name" id="name" class="text" />
+				<input type="text" name="name" id="name" class="text" style="width: 150px;" />
 			</p>
 			<p>
 				<label for="rating">Rate This Station:</label>
 				<select name="rating" id="rating">
-					<option>0</option>
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
@@ -150,7 +149,7 @@
 			</p>
 			<p>
 				<label for="comments">Comments:</label>
-				<textarea name="comment" id="comments"></textarea>
+				<textarea name="comment" id="comments" rows="10" style="width: 300px;"></textarea>
 			</p>
 			<p>
 				<button class="button">Submit Feedback</button>
