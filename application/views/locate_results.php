@@ -14,7 +14,7 @@
 				$r = $q->row();
 				$station_id = $r->station_num;
 			}
-			echo "&bull; <a href='home/result_set/" . $station_id . "'>" . $all->destination_addresses[$station] . "</a> (" . $all->rows["0"]->elements[$station]->distance->text . ")<br />";
+			echo "&bull; <a href='home/result_set/" . $station_id . "'>Station #" . $station_id . " @ " . $all->destination_addresses[$station] . "</a> (" . $all->rows["0"]->elements[$station]->distance->text . ")<br />";
 		}
 		?>
 	</div>

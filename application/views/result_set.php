@@ -36,9 +36,16 @@
 			}";
 			for($i = 4; $i <= 9; $i++) {
 				${"temp" . $i} = array();
+				${"temp" . $i . "_types"} = array();
 				foreach($c["calls"]["0" . $i] AS $k => $v) {
 					if ($v["time_to_onscene"] > 30) {
 						${"temp" . $i}[] = $v["time_to_onscene"];
+					}
+					$type = $v["call_type"];
+					if (!array_key_exists($type, ${"temp" . $i . "_types"})) {
+						${"temp" . $i . "_types"}[$type] = 1;
+					} else {
+						${"temp" . $i . "_types"}[$type]++;
 					}
 				}
 			}
@@ -63,6 +70,6 @@
 	<div id="chart_calls" class="grid_6"></div>
 	<div id="chart_min" class="grid_6"></div>
 	<br class="clear" /><br />
-	<div id="chart_max" class="grid_6"></div>
+	<div id="chart_max" class="grid_12"></div>
 
 <?php $this->load->view("_page_end", array("show_chart" => true, "calls" => $call_data, "min_response" => $min_data, "max_response" => $max_data)); ?>
