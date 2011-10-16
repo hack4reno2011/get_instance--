@@ -169,6 +169,58 @@
 			}
 			?>]
 		});
+
+		avg_chart = new Highcharts.Chart({
+			chart: {
+				renderTo: 'chart_avg',
+				defaultSeriesType: 'line',
+				marginRight: 130,
+				marginBottom: 25
+			},
+			title: {
+				text: 'Averagge Response Times',
+				x: -20 //center
+			},
+			xAxis: {
+				categories: ['Apr', 'May', 'Jun', 
+					'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+			},
+			yAxis: {
+				title: {
+					text: 'Response Time (in minutes)'
+				},
+				plotLines: [{
+					value: 0,
+					width: 1,
+					color: '#808080'
+				}]
+			},
+			tooltip: {
+				formatter: function() {
+		                return '<b>'+ this.series.name +'</b><br/>'+
+						this.x +': '+ this.y +' minutes(s)';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'right',
+				verticalAlign: 'top',
+				x: -10,
+				y: 100,
+				borderWidth: 0
+			},
+			series: [<?php
+			$i = 0;
+			foreach($avg_response AS $c) {
+				if ($i == count($calls)) {
+					echo $c;
+				} else {
+					echo $c . ",";
+				}
+				$i++;
+			}
+			?>]
+		});
 	});
 </script>
 <?php

@@ -40,5 +40,9 @@ $(document).ready(function() {
 		return false;
 	});
 
-
+	$("#ask form").submit(function() {
+		$("#ask").slideUp("fast", function() {
+			$(this).html("Loading&hellip;").slideDown("fast");
+		});		
+	});
 });
