@@ -122,7 +122,7 @@
 			$comments = "";
 			foreach($q->result() AS $r) {
 				$totals[] = $r->rating;
-				$comments .= "<hr />" . $r->user_comments;
+				$comments .= "<hr />" . $r->user_comments . " (" . $r->user_name . ")";
 			}
 			echo "<p>" . count($totals) . " user(s) rate this station an average of " . number_format(array_sum($totals) / count($totals), 2) . "</p><h2>User Comments</h2>";
 			echo $comments;
