@@ -96,18 +96,29 @@ class Home extends CI_Controller {
 	public function save_feedback()
 	{
 		if ($this->input->is_ajax_request()) {
-			@$name = $this->input->post("name");
-			@$rating = $this->input->post("rating");
-			@$comments = $this->input->post("comments");
-			@$station_id = $this->input->post("station_id");
-			$insert = array("feedback_id" => NULL,
-			"station_id" => $station_id,
-			"user_name" => $name,
-			"rating" => $rating,
-			"rated_dtm" => date("Y-m-d g:i:s"),
-			"user_comments" => $comments);
-			$this->db->insert("user_feedback", $insert);
-			echo "success";
+			if ($this->session->userdata("flood_control") > 2) {
+				echo "Could not save feedback.";
+				exit();
+			} else {
+				@$flood = $this->session->userdata("flood_control");
+				if (!$flood) {
+					$flood = 0;
+				}
+				$flood++;
+				$this->session->set_userdata(array("flood_control" => $flood));
+				@$name = $this->input->post("name");
+				@$rating = $this->input->post("rating");
+				@$comments = $this->input->post("comments");
+				@$station_id = $this->input->post("station_id");
+				$insert = array("feedback_id" => NULL,
+				"station_id" => $station_id,
+				"user_name" => $name,
+				"rating" => $rating,
+				"rated_dtm" => date("Y-m-d g:i:s"),
+				"user_comments" => $comments);
+				$this->db->insert("user_feedback", $insert);
+				echo "success(" . $this->session->userdata("flood_control");
+			}
 		}
 	}
 }
