@@ -13,7 +13,7 @@
 
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<base href="<?php echo base_url(); ?>" />
-	<link rel="icon" href="favicon.ico" />
+	<link rel="icon" href="resources/img/favicon.png" />
 	<link rel="stylesheet" href="resources/css/style.css?t=<?php echo time(); ?>">
 	<link rel="stylesheet" href="resources/css/ui-lightness/jquery-ui-1.8.16.custom.css?t=<?php echo time(); ?>">
 
@@ -23,5 +23,5 @@
 
 <div id="container" class="container_12">
 	<header>
-		<a href="./"><img src="resources/img/firebot-1.jpg" alt="FireBot" style="border: none;"></a>
+		<a href="./"><img src="resources/img/firebot.png" alt="FireBot" style="border: none;"></a>
 	</header>
