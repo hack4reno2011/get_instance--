@@ -13,6 +13,33 @@ class Home extends CI_Controller {
 		$this->load->view('locate');
 	}
 
+	public function locate_station()
+	{
+		@$address = $this->input->post("address");
+		if ($address) {
+			$q = $this->db->from("stations")
+				->select("station_address, station_city, station_zip")
+				->where("station_zip >", 0)
+				->get();
+			$stations = "";
+			foreach($q->result() AS $r) {
+				$stations .= $r->station_address . " " . $r->station_city . ", NV " . $r->station_zip . "|";
+			}
+			$stations = trim($stations, "|");
+			$url = "http://maps.googleapis.com/maps/api/distancematrix/json?origins=" . urlencode($address) . "&destinations=" . urlencode($stations) . "&sensor=false&units=imperial";
+			$json = file_get_contents($url);
+			$locations = json_decode($json);
+			$closest = array();
+			foreach($locations->rows["0"]->elements AS $k => $v) {
+				$closest[$k] = $v->duration->value;
+			}
+			asort($closest);
+			$closest = array_slice($closest, 0, 3);
+			echo "Three closest fire stations to " . $address . " are: <!-- $url --><pre>";
+			print_r($closest);
+		}
+	}
+
 	public function result_set()
 	{
 		@$zip = $this->input->post("zip_code");
