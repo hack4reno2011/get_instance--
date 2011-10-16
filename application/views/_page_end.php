@@ -178,7 +178,7 @@
 				marginBottom: 25
 			},
 			title: {
-				text: 'Averagge Response Times',
+				text: 'Average Response Times',
 				x: -20 //center
 			},
 			xAxis: {

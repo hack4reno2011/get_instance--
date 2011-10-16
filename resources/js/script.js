@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$(function(){
-		$("textarea, select, button").uniform();
+		$("input, textarea, select, button").uniform();
 	});
 
 
@@ -33,7 +33,6 @@ $(document).ready(function() {
 			success: function(r) {
 				$("#find").slideUp("fast", function() {
 					$(this).html(r).slideDown("fast");
-					console.log(r);
 				});
 			}
 		});
@@ -44,5 +43,19 @@ $(document).ready(function() {
 		$("#ask").slideUp("fast", function() {
 			$(this).html("Loading&hellip;").slideDown("fast");
 		});		
+	});
+
+	$("#feedback_form").submit(function() {
+		$.ajax({
+			url: 'http://dmwc.biz/hack4reno/home/save_feedback',
+			type: 'post',
+			data: {station_id: $("#station_id").val(), name: $("#name").val(), rating: $("#rating").val(), comments: $("#comments").val()},
+			success: function(r) {
+				$("#feedback").slideUp("fast", function() {
+					$(this).html(r).slideDown("fast");
+				})
+			}
+		})
+		return false;
 	});
 });

@@ -105,18 +105,57 @@
 			
 		}
 		?>
-		<!-- 
-		call breakdown last 30 days
 		
-		<p>Zip Code =
-
-		<p>Station =
-		-->
 	</div>
 	<div id="chart_calls" class="grid_6"></div>
 	<div id="chart_min" class="grid_6"></div>
 	<br class="clear" /><br />
 	<div id="chart_max" class="grid_6"></div>
 	<div id="chart_avg" class="grid_6"></div>
+
+	<div id="feedback" class="grid_12">
+		<?php
+		$num = $this->db->from("user_feedback")->where("station_id", $station_num)->count_all_results();
+		if ($num > 0) {
+			$q = $this->db->from("user_feedback")->where("station_id", $station_num)->get();
+			$totals = array();
+			$comments = "";
+			foreach($q->result() AS $r) {
+				$totals[] = $r->rating;
+				$comments .= "<hr />" . $r->user_comments;
+			}
+			echo "<p>" . count($totals) . " user(s) rate this station an average of " . number_format(array_sum($totals) / count($totals), 2) . "</p><h2>User Comments</h2>";
+			echo $comments;
+			echo "<hr />";
+		} else {
+			echo "<p>No users have submitted any comments on this station yet. Be the first!";
+		}
+		?>
+		<form action="home/save_feedback" method="post" id="feedback_form">
+			<p>
+				<input type="hidden" name="station_id" id="station_id" value="<?php echo $s->station_num; ?>" />
+				<label for="name">Your Name:</label>
+				<input type="text" name="name" id="name" class="text" />
+			</p>
+			<p>
+				<label for="rating">Rate This Station:</label>
+				<select name="rating" id="rating">
+					<option>0</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</p>
+			<p>
+				<label for="comments">Comments:</label>
+				<textarea name="comment" id="comments"></textarea>
+			</p>
+			<p>
+				<button class="button">Submit Feedback</button>
+			</p>
+		</form>
+	</div>
 
 <?php $this->load->view("_page_end", array("show_chart" => true, "calls" => $call_data, "min_response" => $min_data, "max_response" => $max_data, "avg_response" => $avg_data)); ?>
