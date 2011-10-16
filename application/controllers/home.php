@@ -34,7 +34,7 @@ class Home extends CI_Controller {
 				$closest[$k] = $v->duration->value;
 			}
 			asort($closest);
-			$closest = array_slice($closest, 0, 3);
+			$closest = array_slice($closest, 0, 3, TRUE);
 			$data["close"] = $closest;
 			$data["all"] = $locations;
 			$this->load->view("locate_results", $data);
@@ -51,6 +51,9 @@ class Home extends CI_Controller {
 		} elseif ($station) {
 			$q = $this->db->from("stations")->where("station_num", $station)->get();
 			$for = "Station #" . $station;
+		} else if ($this->uri->segment(3)) {
+			$q = $this->db->from("stations")->where("id", $this->uri->segment(3))->get();
+			$for = "Station #" . $this->uri->segment(3);
 		} else {
 			$this->session->set_flashdata("error", "I am not able to search without search criteria");
 			redirect("");

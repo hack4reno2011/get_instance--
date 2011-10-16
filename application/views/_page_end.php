@@ -8,6 +8,7 @@
 
 <!-- scripts concatenated and minified via ant build script-->
 <script src="resources/js/plugins.js"></script>
+<script src="resources/js/highcharts/highcharts.js"></script>
 <script src="resources/js/script.js"></script>
 <?php if (@$show_chart) {
 ?>
