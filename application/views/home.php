@@ -1,5 +1,6 @@
 <?php $this->load->view("_page_start"); ?>
-	<div id="main" role="main" class="grid_12">
+	<div class="grid_2">&nbsp;</div>
+	<div id="main" role="main" class="grid_8">
 		
 		<p>FireBot utilizes public information from the Reno Fire Department to create an easy to understand view of the various station's response time to different types of calls.</p>
 		
@@ -12,7 +13,7 @@
 			<div id="find">
 				<form action="home/locate_station" method="post">
 					<label for="address">Enter Address:</label>
-					<input type="text" name="address" id="address" style="width: 50%">
+					<input type="text" name="address" id="address" style="width: 40%">
 					<button class="button">Find Closest Station</button>
 				</form>
 			</div>
@@ -57,5 +58,6 @@
 				</form>
 			</div>
 		</div>
+		<div class="grid_2">&nbsp;</div>
 	</div>
 <?php $this->load->view("_page_end"); ?>
