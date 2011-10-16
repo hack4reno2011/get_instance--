@@ -15,6 +15,7 @@
 	<base href="<?php echo base_url(); ?>" />
 	<link rel="icon" href="favicon.ico" />
 	<link rel="stylesheet" href="resources/css/style.css?t=<?php echo time(); ?>">
+	<link rel="stylesheet" href="resources/css/ui-lightness/jquery-ui-1.8.16.custom.css?t=<?php echo time(); ?>">
 
 	<script src="resources/js/modernizr-2.0.6.min.js"></script>
 </head>

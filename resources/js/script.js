@@ -18,4 +18,27 @@ $(document).ready(function() {
 			$("#zip_code").removeAttr("disabled");
 		}
 	});
+
+	$(".tabs").tabs();
+
+	$("#find form").submit(function() {
+
+		$("#find").slideUp("fast", function() {
+			$(this).html("Loading&hellip;").slideDown("fast");
+		});
+		$.ajax({
+			url: 'home/locate_station',
+			type: 'post',
+			data: {address: $("#address").val()},
+			success: function(r) {
+				$("#find").slideUp("fast", function() {
+					$(this).html(r).slideDown("fast");
+					console.log(r);
+				});
+			}
+		});
+		return false;
+	});
+
+
 });
