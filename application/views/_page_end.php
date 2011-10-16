@@ -1,5 +1,5 @@
 	<footer>
-Here is the footer.
+<div align=center>Copyright &copy; <?php echo date('Y'); ?> get_instance()</div>
 	</footer>
 </div> <!--! end of #container -->
 

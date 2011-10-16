@@ -7,6 +7,12 @@ class Home extends CI_Controller {
 		$this->load->view('home');
 	}
 
+// Robert created this 
+	public function locate()
+	{
+		$this->load->view('locate');
+	}
+
 	public function result_set()
 	{
 		@$zip = $this->input->post("zip_code");
