@@ -41,5 +41,9 @@
 				<button class="button"><strong>Let's See It!</strong></button>
 			</p>
 		</form>
+
+		<p>
+			<a href="home/locate">Locate the nearest fire station to you!</a>
+		</p>
 	</div>
 <?php $this->load->view("_page_end"); ?>

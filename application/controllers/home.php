@@ -4,7 +4,12 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('home');
+		if ($this->agent->is_mobile()) {
+			echo "This app is not yet mobile friendly";
+			exit();
+		} else {
+			$this->load->view('home');
+		}
 	}
 
 // Robert created this 
@@ -35,8 +40,8 @@ class Home extends CI_Controller {
 			}
 			asort($closest);
 			$closest = array_slice($closest, 0, 3);
-			echo "Three closest fire stations to " . $address . " are: <!-- $url --><pre>";
-			print_r($closest);
+			$data["close"] = $closest;
+			$this->load->view("locate_results", $data);
 		}
 	}
 
@@ -62,7 +67,11 @@ class Home extends CI_Controller {
 			foreach($q->result() AS $r) {
 				$data["set"][] = $r;
 			}
-			$this->load->view("result_set", $data);
+			if ($this->agent->is_mobile()) {
+				$this->load->view("result_set_mobile", $data);
+			} else {
+				$this->load->view("result_set", $data);
+			}
 		} else {
 			$this->session->set_flashdata("error", "I was not able to locate any data with those parameters.");
 			redirect("");
