@@ -7,9 +7,9 @@
 <script>window.jQuery || document.write('<script src="resources/js/jquery-1.6.2.min.js"><\/script>')</script>
 
 <!-- scripts concatenated and minified via ant build script-->
-<script src="resources/js/plugins.js"></script>
-<script src="resources/js/highcharts/highcharts.js"></script>
-<script src="resources/js/script.js"></script>
+<script src="resources/js/plugins.js?t=<?php echo time(); ?>"></script>
+<script src="resources/js/highcharts/highcharts.js?t=<?php echo time(); ?>"></script>
+<script src="resources/js/script.js?t=<?php echo time(); ?>"></script>
 <?php if (@$show_chart) {
 ?>
 <script>

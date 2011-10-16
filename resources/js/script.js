@@ -1,8 +1,9 @@
-$(function(){
-	$("input, textarea, select, button").uniform();
-});
-
 $(document).ready(function() {
+	$(function(){
+		$("textarea, select, button").uniform();
+	});
+
+
 	$("#zip_code").change(function() {
 		if ($(this).val() != "-99") {
 			$("#station_number").attr("disabled", "disabled");
