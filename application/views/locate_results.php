@@ -2,7 +2,9 @@
 	<div id="main" role="main" class="grid_12">
 		<p>Here are the closest fire stations to the location you entered.</p>
 		<?php
-		foreach($)
+		foreach($close AS $c) {
+			
+		}
 		?>
 	</div>
 <?php $this->load->view("_page_end"); ?>

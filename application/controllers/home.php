@@ -4,12 +4,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		if ($this->agent->is_mobile()) {
-			echo "This app is not yet mobile friendly";
-			exit();
-		} else {
-			$this->load->view('home');
-		}
+		$this->load->view('home');
 	}
 
 // Robert created this 
@@ -41,6 +36,7 @@ class Home extends CI_Controller {
 			asort($closest);
 			$closest = array_slice($closest, 0, 3);
 			$data["close"] = $closest;
+			$data["all"] = $locations;
 			$this->load->view("locate_results", $data);
 		}
 	}
