@@ -20,7 +20,18 @@ class Home extends CI_Controller {
 			redirect("");
 			exit();
 		}
-		
-		$this->load->view('result_set');
+		if ($q->num_rows() > 0) {
+			$data = array();
+			$data["set"] = array();
+			$data["debug"] = $this->db->last_query();
+			foreach($q->result() AS $r) {
+				$data["set"][] = $r;
+			}
+			$this->load->view("result_set", $data);
+		} else {
+			$this->session->set_flashdata("error", "I was not able to locate any data with those parameters.");
+			redirect("");
+			exit();
+		}
 	}
 }
