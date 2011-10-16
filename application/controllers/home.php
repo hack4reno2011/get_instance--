@@ -63,6 +63,7 @@ class Home extends CI_Controller {
 			$data = array();
 			$data["set"] = array();
 			$data["for"] = $for;
+			
 			foreach($q->result() AS $r) {
 				$data["set"][] = $r;
 			}
